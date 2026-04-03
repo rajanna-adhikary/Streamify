@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #0a0a0a;
+    color: #f1f1f1;
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar        { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track  { background: transparent; }
+  ::-webkit-scrollbar-thumb  { background: #2a2a2a; border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: #3a3a3a; }
+
+  input, textarea, button, select {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* Reusable dark input */
+  .input-dark {
+    @apply w-full px-3.5 py-2.5 rounded-lg bg-[#0a0a0a] border border-white/[0.08]
+           text-white text-sm placeholder-[#444] outline-none
+           focus:border-purple-500/50 transition-colors duration-150;
+  }
+
+  /* Ghost button — dark surface */
+  .btn-ghost {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium
+           bg-white/[0.05] border border-white/[0.08] text-[#aaa]
+           hover:bg-white/[0.09] hover:text-white
+           transition-all duration-150 cursor-pointer;
+  }
+
+  /* Primary action button — purple gradient */
+  .btn-primary {
+    @apply flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold
+           bg-purple-600 hover:bg-purple-500 text-white border-none
+           transition-colors duration-150 cursor-pointer active:scale-[0.98];
+  }
+}
